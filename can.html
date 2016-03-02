@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Five in a row</title>
+		<style type ="text/css">
+			#board{
+				border-bottom: 1px solid black;
+				border-left: 1px solid black;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			#board td{
+				border: 1px solid lightblue;
+				height: 60px;
+				width: 60px;
+				text-align: center;
+				codoclor: black;
+			}
+			#highestScoreBoard{
+				width: 200px;
+				height: 200px;
+				position: absolute;
+				top: 130px;
+				left: 900px;
+				font-size: 27px;
+			}
+
+			#HistoryBoard{
+				width: 200px;
+				height: 200px;
+				position: absolute;
+				top: 380px;
+				left: 900px;
+				font-size: 27px;
+
+			}
+
+	</style>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<script src="http://code.jquery.com/jquery-latest.min.js" charset="utf-8"></script>	
+
+	</head>
+	<body>
+		<!-- The table container	 -->
+		<h1 style="margin-left:40px;color:grey">Five in a row| Created By Jack</h1>
+		<table style="margin-top: 50px" id="board" cellpadding="0" cellspacing="0">
+		</table>
+		<div id="" ="test">
+			
+		</div>
+
+<!-- 		score board -->
+		<div class="panel panel-default" id="highestScoreBoard">
+		  <div class="panel-heading">Highest Score</div>
+		  <div id="scoreBoard" class="panel-body">
+		    0
+		  </div>
+		</div>	
+		
+		<div class="panel panel-default" id="HistoryBoard">
+		  <div class="panel-heading">Current Score</div>
+		  <div id="currentScoreBoard" class="panel-body">
+		    0
+		  </div>
+		</div>	
+
+	</body>
+	<script src="cookie.js"></script>
+	<script src="draw.js"></script>
+	<script src="shortest.js"></script>
+	<script src="score.js"></script>
+	<script>
+		
+		function gameOver(){
+			alert("Game Over!");
+			// get highest score from cookie
+			var highest = parseInt(readCookie("highestScore"));
+			var oriScore = parseInt($('#currentScoreBoard').html());
+			
+			// compare the current score and history score, then store the result
+			if(oriScore>highest){
+				createCookie("highestScore",oriScore,10);
+			}
+		}
+	
+	</script>
+</html>
